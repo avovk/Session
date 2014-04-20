@@ -21,8 +21,13 @@ Usage
 Session::set('userID',5);
 
 //Get the variable userID from the session
-//returns emptySet if not set.
+//returns empty set if not set.
 $userID = Session:get('userID');
+
+//check if the variable userID is allowed to be used by checking if it's in $_config
+if(Session::inConfig('userID')){
+    return true;
+}
 
 //check if the variable userID exists in the session
 if(Session::exists('userID')){
@@ -32,7 +37,7 @@ if(Session::exists('userID')){
 //Delete the variable userID
 Session::delete('userID');
 
-//Delete all the variables session variable
+//Delete all the session variable that are in $_config
 Session::deleteAll();
 
 

@@ -28,13 +28,16 @@ class Session{
         if(in_array($sessionName,self::$_config)){
             return true;
         }else{
-            throw new Exception("Class Session name doesn't exist");
+            return false;
         }
     }
+
 
     public static function set($sessionName, $value){
         if(self::inConfig($sessionName)){
             $_SESSION[$sessionName] = $value;
+        }else{
+            throw new Exception('Class Session->set: variable does not exist');
         }
     }
 
@@ -42,23 +45,33 @@ class Session{
     public static function get($sessionName){
         if(self::inConfig($sessionName)){
             return (isset($_SESSION[$sessionName]))? $_SESSION[$sessionName] : '';
+        }else{
+            throw new Exception('Class Session->get: variable does not exist');
         }
     }
 
     public static function exists($sessionName){
         if(self::inConfig($sessionName)){
             return isset($_SESSION[$sessionName]);
+        }else{
+            throw new Exception('Class Session->exist: variable does not exist');
         }
     }
 
     public static function delete($sessionName){
         if(self::inConfig($sessionName)){
             unset($_SESSION[$sessionName]);
+        }else{
+            throw new Exception('Class Session->delete: variable does not exist');
         }
     }
 
     public static function deleteAll(){
-        session_destroy();
+        foreach(self::$_config as $sessionVar){
+            if(self::exists($sessionVar)){
+                unset($_SESSION[$sessionName]);
+            }
+        }
     }
 
 }
