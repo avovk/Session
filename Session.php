@@ -11,6 +11,8 @@
  *
  * @version 1.00
  * @copyright Alex Vovk avcoding.com
+ * @contact vovk347@gmail.com
+ * https://github.com/avovk/Session
  */
 
 
@@ -67,8 +69,8 @@ class Session{
     }
 
     public static function deleteAll(){
-        foreach(self::$_config as $sessionVar){
-            if(self::exists($sessionVar)){
+        foreach(self::$_config as $sessionName){
+            if(self::exists($sessionName)){
                 unset($_SESSION[$sessionName]);
             }
         }
