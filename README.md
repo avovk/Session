@@ -1,8 +1,7 @@
 PHP session manager helper class
 
 Benefits:
-- Only allows certain session variables to be used. Throws exception if any other variable is used.
-This helps stop other coders and yourself from creating unnecessary session variables.
+- Restrict which session variables can be used.
 - Easily change the session variable that all of the code is using to avoid merging conflicts.
 
 
