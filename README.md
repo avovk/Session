@@ -12,7 +12,7 @@ Usage
 ```php
 /**
 * Edit $_config variable at the top to set which session variables are allowed
-* $_config = [$userID => 'sessionUserID'];
+* $_config = ['userID' => 'sessionUserID'];
 * Means that "userID" can be set in the argument to set the "sessionUserID" session variable.
 */
 
