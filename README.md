@@ -31,8 +31,8 @@ if(Session::inConfig('userID')){
 
 //check if the variable userID exists in the session
 if(Session::exists('userID')){
-    return true
-};
+    return true;
+}
 
 //Delete the variable userID
 Session::delete('userID');
